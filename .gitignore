@@ -1,2 +1,5 @@
- .hg_archival.txt
- .hgignore
+.hg_archival.txt
+.hgignore
+ivyrepo/
+sbtboot/
+project/*
