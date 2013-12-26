@@ -3,3 +3,4 @@
 ivyrepo/
 sbtboot/
 project/*
+target/*
