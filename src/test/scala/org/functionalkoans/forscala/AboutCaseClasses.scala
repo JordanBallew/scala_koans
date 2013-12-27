@@ -36,9 +36,9 @@ class AboutCaseClasses extends KoanSuite {
   koan("Case classes have a convenient way they can be created") {
     case class Dog(name: String, breed: String)
 
-    val d1 = Dog("Scooby", "Doberman")
+    val d1 = Dog("Scooby", "Great Dane")
     val d2 = Dog("Rex", "Custom")
-    val d3 = new Dog("Scooby", "Doberman") // the old way of creating using new
+    val d3 = new Dog("Scooby", "Great Dane") // the old way of creating using new
 
     (d1 == d3) should be(true)
     (d1 == d2) should be(false)
@@ -47,16 +47,16 @@ class AboutCaseClasses extends KoanSuite {
 
   koan("Case classes have a convenient toString method defined") {
     case class Dog(name: String, breed: String)
-    val d1 = Dog("Scooby", "Doberman")
-    d1.toString should be("Dog(Scooby,Doberman)")
+    val d1 = Dog("Scooby", "Great Dane")
+    d1.toString should be("Dog(Scooby,Great Dane)")
   }
 
   koan("Case classes have automatic properties") {
     case class Dog(name: String, breed: String)
 
-    val d1 = Dog("Scooby", "Doberman")
+    val d1 = Dog("Scooby", "Great Dane")
     d1.name should be("Scooby")
-    d1.breed should be("Doberman")
+    d1.breed should be("Great Dane")
 
     // what happens if you uncomment the line below? Why?
     //d1.name = "Scooby Doo"
@@ -64,29 +64,29 @@ class AboutCaseClasses extends KoanSuite {
 
   koan("Case classes can have mutable properties") {
     case class Dog(var name: String, breed: String) // you can rename a dog, but change its breed? nah!
-    val d1 = Dog("Scooby", "Doberman")
+    val d1 = Dog("Scooby", "Great Dane")
 
     d1.name should be("Scooby")
-    d1.breed should be("Doberman")
+    d1.breed should be("Great Dane")
 
     d1.name = "Scooby Doo" // but is it a good idea?
 
     d1.name should be("Scooby Doo")
-    d1.breed should be("Doberman")
+    d1.breed should be("Great Dane")
   }
 
   koan("Safer alternatives exist for altering case classes") {
-    case class Dog(name: String, breed: String) // Doberman
+    case class Dog(name: String, breed: String) // Great Dane
 
-    val d1 = Dog("Scooby", "Doberman")
+    val d1 = Dog("Scooby", "Great Dane")
 
     val d2 = d1.copy(name = "Scooby Doo") // copy the case class but change the name in the copy
 
     d1.name should be("Scooby") // original left alone
-    d1.breed should be("Doberman")
+    d1.breed should be("Great Dane")
 
     d2.name should be("Scooby Doo")
-    d2.breed should be("Doberman") // copied from the original
+    d2.breed should be("Great Dane") // copied from the original
   }
 
   // case class has to be defined outside of the test for this one
